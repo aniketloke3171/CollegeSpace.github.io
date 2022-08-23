@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="\Image\favicon.png" rel="icon">
+    <title>Graphic Question Paper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background-image: url(https://picsum.photos/200/300/?blur=2);
+  background-size: cover;
+  min-height: 100vh;
+}
+.title{
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.container{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+/*Styles for product card*/
+
+.product .product-card{
+  z-index: 1;
+  background: #1D212B;
+  position: relative;
+  width: 300px;
+  height: 150px;
+  margin: 40px;
+  border-radius: 10px;
+}
+
+.product .product-card:before{
+  content: '';
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  display: block;
+  top: -1%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+.product .product-card .name{
+  z-index: 2;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 100px;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.product .product-card .popup-btn{
+  z-index: 2;
+  color: #fff;
+  background: #555;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/*Styles for popup view*/
+
+.product .popup-view{
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.product .popup-view.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.product .popup-card{
+  position: relative;
+  display: flex;
+  width: 800px;
+  height: 500px;
+  margin: 20px;
+}
+
+.product .popup-card .info{
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.product .popup-card .close-btn{
+  color: #555;
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.product .popup-card .info h2{
+  font-size: 40px;
+  line-height: 20px;
+  margin: 10px;
+}
+
+.product .popup-card .info h2 span{
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.product.popup-card .info .link{
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.product .popup-card .info .link table{
+  width: 100%;
+}
+
+.product .popup-card .info .link table td{
+  width: 100%;
+  padding: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+.product .popup-card .info .link a{
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+/*Responsive styles*/
+
+@media (max-width: 900px){
+  .product .popup-card{
+    flex-direction: column;
+    width: 550px;
+    height: auto;
+  }
+
+  .product .popup-card .info{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .product .popup-card .info h2{
+    margin: 20px 5px 5px 5px;
+    font-size: 25px;
+  }
+
+  .product .popup-card .info h2 span{
+    font-size: 10px;
+  }
+  .product .popup-card .close-btn{
+    z-index: 4;
+  }
+}
+</style>
+  </head>
+  <body>
+     <!-- NAv Bar start-->   
+    
+ <style>
+  .content {
+      max-width: 1250px;
+      margin: auto;
+      padding: 0px 30px;
+  }
+
+  .navbar {
+      position: relative;
+      background: #fff;
+      z-index: 5;
+      width: 100%;
+      padding: 2px ;
+      transition: all 0.3s ease;
+  }
+
+  .navbar.sticky {
+      padding: 10px 0;
+      background: #1b1b1b;
+      box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .navbar .logo a {
+      color: #000;
+      font-size: 30px;
+      font-weight: 600;
+      text-decoration: none;
+  }
+
+  .navbar .menu-list {
+      display: inline-flex;
+  }
+
+  .menu-list li {
+      list-style: none;
+  }
+
+  .menu-list li a {
+      color: #000;
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+
+  .menu-list li a:hover {
+      color: #007bff;
+  }
+
+  .icon {
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+  }
+
+  .icon.cancel-btn {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+  }
+
+  .navbar.sticky .icon.cancel-btn {
+      top: 10px;
+  }
+
+  @media (max-width: 868px) {
+      body.disabledScroll {
+          overflow: hidden;
+      }
+
+      .icon {
+          display: block;
+          height: 50px;
+          width: 50px;
+          text-align: center;
+          line-height: 50px;
+          border-radius: 50%;
+          z-index: 9;
+      }
+
+      .icon.cancel-btn {
+          display: none;
+      }
+
+      .icon.cancel-btn.show {
+          display: block;
+      }
+
+      .icon.hide {
+          display: none;
+      }
+
+      .navbar .menu-list {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100%;
+          background: #222;
+          display: block;
+          padding: 40px 0;
+          text-align: center;
+          clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+          transition: all 0.3s ease;
+      }
+
+      .navbar.sticky .menu-list {
+          clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+      }
+
+      .navbar .menu-list.active {
+          clip-path: circle(75%);
+      }
+
+      .navbar .menu-list li {
+          margin-top: 45px;
+      }
+
+      .navbar .menu-list li a {
+          font-size: 23px;
+      }
+  }
+</style>
+<nav class="navbar">
+      <div class="content">
+          <div class="logo"><a href="#">CollegeSpace</a></div>
+          <ul class="menu-list">
+              <div class="icon cancel-btn">
+                  <i class="fas fa-times"></i>
+              </div>
+              <li><a href="/Main/homepage.html">Home</a></li>
+              <li><a href="/Department/question.html">Question Paper</a></li>
+              <li><a href="/Department/notes.html">Notes</a></li>
+              <li><a href="/project page/Graphic/index.html">Projects</a></li>
+              <li><a href="/Placement/placement/placement.html">Placements</a></li>
+              <li><a href="/Main/R-TPO.pdf" target="_blank">T&P</a></li>
+              <li><a href="/Aboutus/aboutus.html" >About us</a></li>
+          </ul>
+          <div class="icon menu-btn">
+              <i class="fas fa-bars"></i>
+          </div>
+      </div>
+</nav>
+<script>
+      const body = document.querySelector("body");
+      const navbar = document.querySelector(".navbar");
+      const menu = document.querySelector(".menu-list");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = () => {
+          menu.classList.add("active");
+          menuBtn.classList.add("hide");
+          cancelBtn.classList.add("show");
+          body.classList.add("disabledScroll");
+      }
+      cancelBtn.onclick = () => {
+          menu.classList.remove("active");
+          menuBtn.classList.remove("hide");
+          cancelBtn.classList.remove("show");
+          body.classList.remove("disabledScroll");
+      }
+
+      window.onscroll = () => {
+          this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+      }
+</script>
+<!-- NAv Bar end-->
+    <div class="title">
+      <h1>Graphic Question Paper With Solution 2020</h1>
+    </div>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat',sans-serif;
+      }
+      nav{
+        padding: 5px 40px;
+      }
+      nav ul{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      nav ul li{
+        padding: 15px 0;
+        cursor: pointer;
+      }
+      nav ul li.items{
+        position: relative;
+        width: auto;
+        margin: 0 16px;
+        text-align: center;
+        order: 3;
+      }
+      nav ul li.items:after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 5px;
+        height: 2px;
+        width: 100%;
+        background: #33ffff;
+        opacity: 0;
+        transition: all 0.2s linear;
+      }
+      nav ul li.items:hover:after{
+        opacity: 1;
+        bottom: 8px;
+      }
+      nav ul li.logo{
+        flex: 1;
+        color: white;
+        font-size: 23px;
+        font-weight: 900;
+        cursor: default;
+        user-select: none;
+      }
+      nav ul li a{
+        color: white;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        transition: .4s;
+      }
+      nav ul li:hover a{
+        color: #000;
+      }
+      nav ul li i{
+        font-size: 23px;
+      }
+      nav ul li.btn{
+        display: none;
+      }
+      nav ul li.btn.hide i:before{
+        content: '\f00d';
+      }
+      @media all and (max-width: 900px){
+        nav{
+          padding: 5px 30px;
+        }
+      
+        nav ul li.items:hover{
+          border-radius: 5px;
+          box-shadow: inset 0 0 5px #33ffff,
+                      inset 0 0 10px #66ffff;
+        }
+        nav ul li.items:hover:after{
+          opacity: 0;
+        }
+      }
+      </style>
+           
+      <nav>
+        <ul>
+           <li class="items"><a href="Question2016.html" target="_blank">2016</a></li>
+           <li class="items"><a href="Question2017.html" target="_blank">2017</a></li>
+           <li class="items"><a href="Question2018.html" target="_blank">2018</a></li>
+           <li class="items"><a href="Question2019.html" target="_blank">2019</a></li>
+           <li class="items"><a href="Question2020.html" target="_blank">2020</a></li>
+           <li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+      </nav>
+      <script>
+        $(document).ready(function(){
+          $('.btn').click(function(){
+            $('.items').toggleClass("show");
+            $('ul li').toggleClass("hide");
+          });
+        });
+      </script>
+     
+
+
+
+
+<div class="container">
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 1</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="info">
+          <h2>Sem 1<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 2</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="info">
+          <h2>Sem 2<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 3</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="product-img">
+        </div>
+        <div class="info">
+          <h2>Sem 3<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 4</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="info">
+          <h2>Sem 4<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 5</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="info">
+          <h2>Sem 5<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--new-->
+<div class="product">
+  <div class="product-card">
+    <h2 class="name">Sem 6</h2>
+    <a class="popup-btn">Quick View</a>
+  </div>
+  <div class="popup-view">
+    <div class="popup-card">
+      <a><i class="fas fa-times close-btn"></i></a>
+      <div class="info">
+        <h2>Sem 6<br><span>Subjects</span></h2>
+        <div class="link">
+          <table border="2px">
+            <tr>
+              <td><strong> S1 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S2 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S3 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S4 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S5 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S6 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="product">
+  <div class="product-card">
+    <h2 class="name">Sem 7</h2>
+    <a class="popup-btn">Quick View</a>
+  </div>
+  <div class="popup-view">
+    <div class="popup-card">
+      <a><i class="fas fa-times close-btn"></i></a>
+      <div class="info">
+        <h2>Sem 7<br><span>Subjects</span></h2>
+        <div class="link">
+          <table border="2px">
+            <tr>
+              <td><strong> S1 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S2 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S3 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S4 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S5 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+            <tr>
+              <td><strong> S6 </strong></td>
+              <td><a href="#"> Download </a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="product">
+    <div class="product-card">
+      <h2 class="name">Sem 8</h2>
+      <a class="popup-btn">Quick View</a>
+    </div>
+    <div class="popup-view">
+      <div class="popup-card">
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="product-img">
+        </div>
+        <div class="info">
+          <h2>Sem 8<br><span>Subjects</span></h2>
+          <div class="link">
+            <table border="2px">
+              <tr>
+                <td><strong> S1 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S2 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S3 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S4 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S5 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+              <tr>
+                <td><strong> S6 </strong></td>
+                <td><a href="#"> Download </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var popupViews = document.querySelectorAll('.popup-view');
+  var popupBtns = document.querySelectorAll('.popup-btn');
+  var closeBtns = document.querySelectorAll('.close-btn');
+
+  var popup = function(popupClick){
+    popupViews[popupClick].classList.add('active');
+  }
+
+  popupBtns.forEach((popupBtn, i) => {
+    popupBtn.addEventListener("click", () => {
+      popup(i);
+    });
+  });
+
+  closeBtns.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", () => {
+      popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+      });
+    });
+  });
+</script>
+</body>
+</html>
