@@ -1,0 +1,1164 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Project</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="\Image\favicon.png" rel="icon">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/fontAwesome.css">
+        <link rel="stylesheet" href="css/light-box.css">
+        <link rel="stylesheet" href="css/owl-carousel.css">
+        <link rel="stylesheet" href="css/Graphicus.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+
+<body>
+ <!-- NAv Bar start-->   
+    
+ <style>
+    .content {
+        max-width: 1250px;
+        margin: auto;
+        padding: 0px 30px;
+    }
+
+    .navbar {
+        position: relative;
+        background: #fff;
+        z-index: 5;
+        width: 100%;
+        padding: 2px ;
+        transition: all 0.3s ease;
+    }
+
+    .navbar.sticky {
+        padding: 10px 0;
+        background: #1b1b1b;
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar .logo a {
+        color: #000;
+        font-size: 30px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .navbar .menu-list {
+        display: inline-flex;
+    }
+
+    .menu-list li {
+    
+        list-style: none;
+    }
+
+    .menu-list li a {
+        color: #000;
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .menu-list li a:hover {
+        color: #007bff;
+    }
+
+    .icon {
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .icon.cancel-btn {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+
+    .navbar.sticky .icon.cancel-btn {
+        top: 10px;
+    }
+
+    @media (max-width: 868px) {
+        body.disabledScroll {
+            overflow: hidden;
+        }
+
+        .icon {
+            display: block;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            z-index: 9;
+        }
+
+        .icon.cancel-btn {
+            display: none;
+        }
+
+        .icon.cancel-btn.show {
+            display: block;
+        }
+
+        .icon.hide {
+            display: none;
+        }
+
+        .navbar .menu-list {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background: #222;
+            display: block;
+            padding: 40px 0;
+            text-align: center;
+            clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+            transition: all 0.3s ease;
+        }
+
+        .navbar.sticky .menu-list {
+            clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+        }
+
+        .navbar .menu-list.active {
+            clip-path: circle(75%);
+        }
+
+        .navbar .menu-list li {
+            margin-top: 45px;
+        }
+
+        .navbar .menu-list li a {
+            font-size: 23px;
+        }
+    }
+</style>
+<nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="#">CollegeSpace</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="/Main/homepage.html">Home</a></li>
+                <li><a href="/Department/question.html">Question Paper</a></li>
+                <li><a href="/Department/notes.html">Notes</a></li>
+                <li><a href="/project page/Graphic/index.html">Projects</a></li>
+                <li><a href="/Placement/placement/placement.html">Placements</a></li>
+                <li><a href="/Main/R-TPO.pdf" target="_blank">T&P</a></li>
+                <li><a href="/Aboutus/aboutus.html" target="_blank">About us</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+</nav>
+<script>
+        const body = document.querySelector("body");
+        const navbar = document.querySelector(".navbar");
+        const menu = document.querySelector(".menu-list");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            menu.classList.add("active");
+            menuBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+            body.classList.add("disabledScroll");
+        }
+        cancelBtn.onclick = () => {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            body.classList.remove("disabledScroll");
+        }
+
+        window.onscroll = () => {
+            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+        }
+</script>
+<!-- NAv Bar end--> 
+
+
+
+        <header class="nav-down responsive-nav hidden-lg hidden-md">
+            <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--/.navbar-header-->
+            <div id="main-nav" class="collapse navbar-collapse">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#blog">Projects</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="sidebar-navigation hidde-sm hidden-xs">
+            <div class="logo">
+                <a href="#">College<em>Space</em></a>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#top">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            Home
+                        </a>
+                    </li>
+                  
+                    <li>
+                        <a href="#blog">
+                            <span class="rect"></span>
+                            <span class="circle"></span>
+                            Projects
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="slider">
+            <div class="Modern-Slider content-section" id="top">
+                <!-- Item -->
+                <div class="item item-1">
+                    <div class="img-fill">
+                    <div class="image"></div>
+                    <div class="info">
+                        <div>
+                          <h1>Best Projects<br>By Students </h1>
+                          <p>Here you get every single project by Students</p>
+                          <div class="white-button button">
+                              <a href="#blog">Discover More</a>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+                <!-- Item -->
+                <div class="item item-2">
+                    <div class="img-fill">
+                        <div class="image"></div>
+                        <div class="info">
+                        <div>
+                          <h1>All Department wise</h1>
+                          <p> Projects</p>
+                          
+                          <div class="white-button button">
+                              <a href="#blog">Share More</a>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+                <!-- Item -->
+                <div class="item item-3">
+                    <div class="img-fill">
+                        <div class="image"></div>
+                        <div class="info">
+                        <div>
+                          <h1>Role of Projects</h1>
+                          <p></p>
+                          
+                          <div class="white-button button">
+                              <a href="#blog">Learn More</a>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // Item -->
+            </div>
+        </div>
+
+
+
+        <div class="page-content">
+           
+          
+            <section id="blog" class="content-section">
+                <div class="section-heading">
+                    <h1><em><br>Projects</em></h1>
+                    <p><br>A platform for engineers & technical professionals to share their engineering projects,
+                       <br> solutions & experiences with Other Community & support open source.</p>
+                </div>
+                <div class="section-content">
+                    <div class="tabs-content">
+                        <div class="wrapper">
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                              <li><a href="#tab1" class="active">CSE</a></li>
+                              <li><a href="#tab2">MECH</a></li>
+                              <li><a href="#tab3">CIVIL</a></li>
+                              <li><a href="#tab4">ENTC</a></li>
+                              <li><a href="#tab5">ELECTRONIC</a></li>
+                              <li><a href="#tab6">GRAPHIC</a></li>
+                            </ul>
+                            <section id="first-tab-group" class="tabgroup">
+                                <div id="tab1">
+                                    <ul>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://assets.skyfilabs.com/images/blog/be-projects-for-cse.webp" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project1 </h4>
+                                                    <span>#1</span>
+                                                    <p>You will be creating an android application which helps to take notes at any time and helps
+                                                        to generate a very strong password for the security of your account and makes them
+                                                        available whenever you need. It's going to have two major functionalities at the same time.</p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="\project page\Graphic\ME_PROJECT_NOTE_PASS.pdf">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://assets.skyfilabs.com/images/blog/cse-mini-projects.webp" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project2</h4>
+                                                    <span>#2</span>
+                                                    <p>Land Surface Temperature (LST) with high spatio-temporal resolution is in demand for hydrology, climate
+                                                        change, ecology, urban climate and environmental studies, etc. Moderate Resolution Imaging
+                                                        Spectroradiometer (MODIS) is one of the most commonly used sensors owing to its high spatial and temporal availability over the globe.</p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="\project page\Graphic\Prediction-of-High-Spatio-Temporal-Resolution-Land-Surface-Temperature-using-ANN-and-MICROWAVE-VEGETATION-INDEX (1).pdf">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj7dL2EBq2ZTeh7yhbVXW9wdPvInnifkhpzw&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project3</h4>
+                                                    <span>#3</span>
+                                                    <p>Visuals catch attention and are easily remembered. More often than not, they are the first chance at impressing a potential customer and holding their attention for as long as possible.
+
+                                                        Graphic designers take the vision of their clients and bring it to life using visual communication.</p>
+                                                    
+                                                        <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\Importance-Of-Graphics .html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzGByFPgyakTUohv-6DwxXoQXl7GBtGEye6w&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project4</h4>
+                                                    <span>#4</span>
+                                                    <p>Have you ever found yourself spotting shapes in the clouds? That is because people are hard-wired to recognize patterns, even when there are none. It’s the same reason that we often think we know where to click when first experiencing a website—and get frustrated if things aren’t where we think they should be.</p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\Learn-more-about-Graphic-Design.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj9lrPqwU633Ko-TFheN_Gcoe2x3fxmz03Dg&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project5</h4>
+                                                    <span>#5</span>
+                                                    <p>Graphic design, is the methodical, purposeful selection and arrangement of graphic elements, typography, and the psychology of color to create visually appealing designs. Rather than creating single graphics, graphic designers create items like posters, vehicle wraps, brochures, and other promotional and advertising pieces that appeal to consumers and drive sales and profitability to businesses and corporations.</p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\Communication-Design.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9v_u5YFdR1baR63Vwo-GD6QgcZC8S_KtMkg&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project6 </h4>
+                                                    <span>#6</span>
+                                                    <p> One of the cool things about graphic design is that you don’t necessarily need to go to University to become a great graphic designer.
+
+                                                        Of course, a degree in graphic design from a University is going to give you a huge advantage if you can attain one.</p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\How-Can-I-Beacame-Graphic-Designer.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0KHfIR6QSDAZVhBUSUI1OjqJWSvC32wtvmw&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project7 </h4>
+                                                    <span>#7</span>
+                                                    <p>Graphic design as a profession really grew in the 20th century. (Think Mad Men and Cigarette Advertisements) We couldn’t create a list of the most famous graphic designers of 2020 without paying homage to some of the famous graphic designers of all time! Those pioneers blazed a trail for those today.
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\Graphic-Designers-Of-The-20th-Century.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://3.bp.blogspot.com/-5lbOSXpQm40/WB8WiWYwSNI/AAAAAAAALvw/k5i77dICCaosK61fHZCGc7O1W2EucIyYQCLcB/s1600/Computer%2BScience%2BEngineering%2BProject%2BIdeas.png" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project8 </h4>
+                                                    <span>#8</span>
+                                                    <p> So where should you look for inspiration for your own works? Which are the ones you should keep your eyes on?Look no further! We’ve compiled a list of some of the world’s most famous graphic designers so that you can follow them on social media and maybe even get some inspiration for your next graphic design project! 
+
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\Graphic-Design-In-2020-&-Beyond.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE25xNZCERPOhCUo1KzhndOvqmTT6_QyEuKg&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>project9 </h4>
+                                                    <span>#9</span>
+                                                    <p>Visuals catch attention and are easily remembered. More often than not, they are the first chance at impressing a potential customer and holding their attention for as long as possible.
+
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\The-Importance-of-Graphic-Designers .html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                                <div id="tab2">
+                                    <ul>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIZaLAmJl9p39kEqrjioogxPltAzsIxW__HDrVIpY-YLV1vhJgzrmmzPdGND23YDOLUZ4&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project1</h4>
+                                                    <span>#1</span>
+                                                    <p>           Air leak detector is a project to intimate the alarm signal when there are any leakages in the tank. The field of mechanical engineering has a theme word called “CHANGE” as its backbone.  </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="\project page\Graphic\AUTO-BRAKING-SYSTEM-FOR-FOUR-WHEELER-VEHICLE-MODEL.doc">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://i.pinimg.com/236x/9b/9d/f6/9b9df6dde624bb10fce28221465b84f4.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project2</h4>
+                                                    <span>#2</span>
+                                                    <p> 
+                                                        The aim is to design and develop a control system based an intelligent electronically controlled automotive breaking system is called “INTELLIGENT BREAKING SYSTEM”. This Breaking system is consists of IR transmitter and Receiver circuit and the vehicle. 
+
+                                                    </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="\project page\Graphic\AIR-LEAK-DETECTOR.doc">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://i2.wp.com/myengineeringprojects.in/wp-content/uploads/2019/10/Pneumatic-Sheet-Bending-Machine.png?resize=495%2C381&ssl=1" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project3</h4>
+                                                    <span>#3</span>
+                                                    <p> 
+                                                         A logo is a sketched or graphically designed symbol arranged in a unique way, with distinct colors, shapes, and designs to represent a company, product, organization, agency, or service.
+
+                                                    </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-3.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMI5QEgQxND63wFcc3VXUebZDVdL5LvB_CGg&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project4</h4>
+                                                    <span>#4</span>
+                                                    <p> 
+                                                         Another career option for graphic designer graduates is brand identity positions.  Brand identity is more intricate than logo creation. A brand identity design is a visual element that represents how a company wants to be seen;
+
+                                                    </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-4.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbyzCdZfzSEtQoIxqSwz5H7eTwfr-U9ybhA&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project5</h4>
+                                                    <span>#5</span>
+                                                        <p>
+                                                            Flash is a multimedia graphics program designed specifically for use on the web. Flash is a tool for creating interactive and animated websites using vector and raster graphics which enable the graphics to be scaled to any size without losing clarity or quality.
+
+                                                        </p>
+
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-5.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT9hdoQI2nhjjGTp7C-jH00PL-d9GijFA2dQ&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>project6</h4>
+                                                    <span>#6</span>
+                                                        <p>
+                                                            Creative/art directors are in charge of a creative team that produces artwork to be displayed on television, billboards, the Internet, or in magazines.Some would consider them to be advertising graphic design jobs because they work hand in hand with marketing.
+                                                        </p>
+
+                                                        <div class="accent-button button">
+                                                            <a href="C:\Users\shree\Desktop\Graphic\html\c-6.html">Continue Reading</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="item">
+                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEhehJdwrKika16yDs1haO05XaWU7qp9OtUg&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                    <div class="text-content">
+                                                        <h4>Project7</h4>
+                                                        <span>#7</span>
+                                                            <p>
+                                                                When considering careers with graphic design degree you can’t leave out photo-editing.  A number of large eCommerce companies have a need for a product photographer.  For those who show an interest,
+
+                                                            </p>
+
+                                                            <div class="accent-button button">
+                                                                <a href="C:\Users\shree\Desktop\Graphic\html\c-7.html">Continue Reading</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="item">
+                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGfQq1VOVDolcqtn6aOd1bSAK7RJ4yu_q-Ow&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                                                        <div class="text-content">
+                                                            <h4>project8</h4>
+                                                            <span>#8</span>
+                                                                <p>
+                                                                    A layout artist designs the structure and layout of images and text in a pleasing format for printed media. This can include magazine work, brochures, flyers, books, CD booklets, and posters.
+
+                                                                </p>
+
+                                                                <div class="accent-button button">
+                                                                    <a href="C:\Users\shree\Desktop\Graphic\html\c-8.html">Continue Reading</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    
+    
+                                                        
+
+                                    </ul>
+                                </div>
+                                <div id="tab3">
+                                    <ul>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://www.ierek.com/news/wp-content/uploads/2018/07/cover-660x330.png"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 1</h4>
+                                                    <span>#1</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://www.nashikprojects.com/application/uploads/images/civil.JPG" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 2</h4>
+                                                    <span>#2</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="http://www.majesticproject.com/latest/955332222_DESIGN%20RELATED%20PROJECT.jpg" style="width: 300px; height: 150px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 3 </h4>
+                                                    <span>#3</span>
+                                                    <p>Adobe Photoshop is arguably the most popular software for graphic design and is used by millions of artists around the world. Whether you are looking to create banners, posters, websites, or logos, this best graphic design software can do it all for you. From small edits to sophisticated designs, Adobe Photoshop has tools for every level. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLqFgle-EjJFjiG9L3JrhSobu1W59tjx_xuA&usqp=CAU" style="width: 300px; height: 200px">
+                                                <div class="text-content">
+                                                    <h4>Project 4</h4>
+                                                    <span>#4</span>
+                                                    <p>Adobe Illustrator is a design software that is centered around vector design. You can create artwork, icons, posters, etc.  and the designs created in Adobe Illustrator can be used in business cards or billboards and from smartphones to 8k screens. You can use this software to draw, mix, and refine designs to create something spectacular. Adobe has made a mobile version called Adobe Illustrator Draw, which is one of the best graphic design apps out there. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                      
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Vzn8gKznbkkUFHx21OXdEMTAiMnxPPhSSQ&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 5</h4>
+                                                    <span>#5 </span>
+                                                    <p>
+                                                        Another software by Adobe that can be used to create designs is the Adobe InDesign. This graphic design software is used primarily in the publishing industry because you can design magazines, info sheets, books, posters, interactive PDFs, brochures, etc. with it. With the ‘adjust layout’ option that InDesign provides, you can change the text of your document, and the graphic will adjust accordingly. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmDyn50HvRf4FsZq-nXJr3Rzx2yDo517f7Dw&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 6</h4>
+                                                    <span>#6 </span>
+                                                    <p>CorelDRAW was earlier built only for Windows OS; it is now available for Mac as well. With this graphic design program, you can create professional vector illustrations. There are powerful design tools to help you work faster and smarter. You will find numerous customization options, whether you are working on logos, web design, or print projects. CorelDRAW now uses AI technology to provide you with LiveSketch, which converts sketching into precise vector curves.
+                                                    <div class="accent-button button">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="http://www.civilprojectsonline.com/wp-content/uploads/2019/07/groundfloorduplex-1-819x1024.jpg" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 7 </h4>
+                                                    <span>#7 </span>
+                                                    <p>The Affinity Designer is a cheaper alternative to illustrator, which is especially suitable for someone who is in the early stage of design career. The software is known to work smoothly, which can improve your workflow and make you express your creativity more freely. You can move and zoom your artwork at 60fps; see the gradients, effects, and adjustments changing live along with the transforms and curve edits.  
+                                                    <div class="accent-button button">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://cdn.ca.emap.com/wp-content/uploads/sites/9/2020/05/shutterstock_1428121142-hard-hat-1024x678.jpg" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 8 </h4>
+                                                    <span>#8 </span>
+                                                    <p>If you have no previous experience in designing and you are looking for something very easy, then Canva is for you. This free online graphic design software allows you to create designs easily and quickly.
+                                                    <div class="accent-button button">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0q1OKE1mBcYJECBmy7jmVWZaCPM39sGJOHA&usqp=CAU" style="width: 300px; height: 200px;" alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 9</h4>
+                                                    <span>#9 </span>
+                                                    <p>Colorcinch is a fan favorite! It’s a simple-to-use free online photo editor that is rich in features. You can quickly and easily edit photos using the array of editing tools to adjust exposure, contrast, color, etc, or crop and rotate images, but Colorcinch goes much further than basic image editing. It can be used for creating all kinds of graphic design projects too.
+
+                                                    <div class="accent-button button">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                       
+                                <div id="tab4">
+                                    <ul>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.skyfilabs.com/images/electronics_and_telecommunication_mini_project_topics.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 1</h4>
+                                                    <span>#1</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://www.elprocus.com/wp-content/uploads/2014/06/310-300x182.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 2</h4>
+                                                    <span>#2</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://www.elprocus.com/wp-content/uploads/Electronics-Projects-300x195.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 3</h4>
+                                                    <span>#3</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://i.ytimg.com/vi/Q2dJqRbJ9_8/maxresdefault.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 5</h4>
+                                                    <span>#5</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Silego_clock_generator.JPG" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 6</h4>
+                                                    <span>#6</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item">
+                                                <img src="https://engineering.eckovation.com/wp-content/uploads/2018/05/file-20170629-16051-lydbvr.jpg" style="width: 300px; height: 200px;"  alt="">
+                                                <div class="text-content">
+                                                    <h4>Project 7</h4>
+                                                    <span>#7</span>
+                                                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                                                        They produce sketches, plans, scale models, or drawings. </p>
+                                                    
+                                                    <div class="accent-button button">
+                                                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    
+
+                                        
+                                    </ul>
+                                </div>
+                                
+<!--new -->
+<div id="tab5">
+    <ul>
+        <li>
+            <div class="item">
+                <img src="https://www.elprocus.com/wp-content/uploads/Substation-Monitoring-Electrical-Project.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 1</h4>
+                    <span>#1</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://5.imimg.com/data5/FS/YK/PP/SELLER-44771528/electrical-final-year-project-500x500.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 2</h4>
+                    <span>#2</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://www.elprocus.com/wp-content/uploads/2014/12/Utra-fast-acting-electronic-circuit-breacker1.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 3</h4>
+                    <span>#3</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGc9jwrYjxW872cycC4L_Bbrr7t_ovy2tqPg&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 4</h4>
+                    <span>#4</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLAaXlUzjCvOkFPhYLoKTeOpKvKelL3nEvWQ&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 5</h4>
+                    <span>#5</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://i0.wp.com/www.admecindia.co.in/wp-content/uploads/2020/01/electrical-controls-design.png?fit=630%2C354&ssl=1" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 6</h4>
+                    <span>#6</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2V8cuiWMYs-py_hI0KOHjrdx7KRzWapvKQ&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>project 7</h4>
+                    <span>#7</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <img src="img/c1.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 8</h4>
+                    <span>#8</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+      
+    </ul>
+</div>
+<div id="tab6">
+    <ul>
+        <li>
+            <div class="item">
+                <img src="https://i0.wp.com/www.graphic-design-institute.com/wp-content/uploads/2020/02/the-best-applications-to-learn-as-a-graphics-designer.jpg?fit=1200%2C800&ssl=1" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project1</h4>
+                    <span>#1</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUmBkjI3W6M0QqfmEScCegorTQbu7HOndbTL8eOpl6qtFhd8KTxiMIfobd-Z4szqJUoWU&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>project2</h4>
+                    <span>#2</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://www.digitalartsonline.co.uk/cmsdata/slideshow/3598399/Graphic-Design-Tutorials-Main_1000_thumb1200_4-3.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>project3</h4>
+                    <span>#3</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://frameboxx.in/new/wp-content/uploads/2018/07/Graphic-Design-1.jpg" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 4</h4>
+                    <span>#4</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7cDriq-D8kVkDmhXqGeIrQ3BlmmpDR877g&usqp=CAU" style="width: 300px; height: 200px;"  alt="">
+                <div class="text-content">
+                    <h4>Project 5</h4>
+                    <span>#5</span>
+                    <p> One of the most common graphic design jobs is multimedia design. If you explore graphic design career options in this field there are a few skills you might need to develop. A multimedia designer uses art, sound, and design skills to create videos, audio, and animated images. 
+                        They produce sketches, plans, scale models, or drawings. </p>
+                    
+                    <div class="accent-button button">
+                        <a href="C:\Users\shree\Desktop\Graphic\html\c-1.html">Continue Reading</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+       
+    </ul>
+</div>
+
+                            </section> 
+                        </div>
+                    </div>
+                </div>
+            </section>
+       
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+                 <script>
+                    
+                    $(".step").click( function() {
+                    $(this).addClass("active").prevAll().addClass("active");
+                    $(this).nextAll().removeClass("active");
+                });
+                
+                $(".step01").click( function() {
+                    $("#line-progress").css("width", "3%");
+                    $(".discovery").addClass("active").siblings().removeClass("active");
+                });
+                
+                $(".step02").click( function() {
+                    $("#line-progress").css("width", "25%");
+                    $(".strategy").addClass("active").siblings().removeClass("active");
+                });
+                
+                $(".step03").click( function() {
+                    $("#line-progress").css("width", "50%");
+                    $(".creative").addClass("active").siblings().removeClass("active");
+                });
+                
+                $(".step04").click( function() {
+                    $("#line-progress").css("width", "75%");
+                    $(".production").addClass("active").siblings().removeClass("active");
+                });
+                
+                $(".step05").click( function() {
+                    $("#line-progress").css("width", "100%");
+                    $(".analysis").addClass("active").siblings().removeClass("active");
+                });
+                
+                 
+                    </script>
+             
+            </section>
+            <br><br>
+           
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Hide Header on on scroll down
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event){
+            didScroll = true;
+        });
+
+        setInterval(function() {
+            if (didScroll) {
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+            
+            // Make sure they scroll more than delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+            
+            // If they scrolled down and are past the navbar, add class .nav-up.
+            // This is necessary so you never see what is "behind" the navbar.
+            if (st > lastScrollTop && st > navbarHeight){
+                // Scroll Down
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    $('header').removeClass('nav-up').addClass('nav-down');
+                }
+            }
+            
+            lastScrollTop = st;
+        }
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+</body>
+</html>
