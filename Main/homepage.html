@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="\Image\favicon.png" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <title>HomePage Main</title>
+    <script type="text/javascript" src="js/JQuery3.3.1.js"></script>
+    <script type="text/javascript" src="js/lightslider.js"></script>
+    <style>
+        .btn {
+            width: 100px;
+            background-color: #5995fd;
+            border: none;
+            outline: none;
+            height: 25px;
+            border-radius: 10px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background-color: #4d84e2;
+        }
+
+
+
+
+        .lSSlideOuter {
+            overflow: hidden;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        .lightSlider:before,
+        .lightSlider:after {
+            content: " ";
+            display: table;
+        }
+
+        .lightSlider {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .lSSlideWrapper {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lSSlideWrapper>.lightSlider:after {
+            clear: both;
+        }
+
+        .lSSlideWrapper .lSSlide {
+            -webkit-transform: translate(0px, 0px);
+            -ms-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+            -webkit-transition: all 1s;
+            -webkit-transition-property: -webkit-transform, height;
+            -moz-transition-property: -moz-transform, height;
+            transition-property: transform, height;
+            -webkit-transition-duration: inherit !important;
+            transition-duration: inherit !important;
+            -webkit-transition-timing-function: inherit !important;
+            transition-timing-function: inherit !important;
+        }
+
+        .lSSlideWrapper .lSFade {
+            position: relative;
+        }
+
+        .lSSlideWrapper .lSFade>* {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        .lSSlideWrapper.usingCss .lSFade>* {
+            opacity: 0;
+            -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+            -webkit-transition-duration: inherit !important;
+            transition-duration: inherit !important;
+            -webkit-transition-property: opacity;
+            transition-property: opacity;
+            -webkit-transition-timing-function: inherit !important;
+            transition-timing-function: inherit !important;
+        }
+
+        .lSSlideWrapper .lSFade>*.active {
+            z-index: 10;
+        }
+
+        .lSSlideWrapper.usingCss .lSFade>*.active {
+            opacity: 1;
+        }
+
+        /** /!!! End of core css Should not edit !!!/**/
+
+        /* Pager */
+        .lSSlideOuter .lSPager.lSpg {
+            margin: 10px 0 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .lSSlideOuter .lSPager.lSpg>li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 0 5px;
+        }
+
+        .lSSlideOuter .lSPager.lSpg>li a {
+            background-color: #222222;
+            border-radius: 30px;
+            display: inline-block;
+            height: 8px;
+            overflow: hidden;
+            text-indent: -999em;
+            width: 8px;
+            display: none;
+            position: relative;
+            z-index: 99;
+            -webkit-transition: all 0.5s linear 0s;
+            transition: all 0.5s linear 0s;
+        }
+
+        .lSSlideOuter .lSPager.lSpg>li:hover a,
+        .lSSlideOuter .lSPager.lSpg>li.active a {
+            background-color: #428bca;
+        }
+
+        .lSSlideOuter .media {
+            opacity: 0.8;
+        }
+
+        .lSSlideOuter .media.active {
+            opacity: 1;
+        }
+
+        /* End of pager */
+
+        /** Gallery */
+        .lSSlideOuter .lSPager.lSGallery {
+            list-style: none outside none;
+            padding-left: 0;
+            margin: 0;
+            overflow: hidden;
+            transform: translate3d(0px, 0px, 0px);
+            -moz-transform: translate3d(0px, 0px, 0px);
+            -ms-transform: translate3d(0px, 0px, 0px);
+            -webkit-transform: translate3d(0px, 0px, 0px);
+            -o-transform: translate3d(0px, 0px, 0px);
+            -webkit-transition-property: -webkit-transform;
+            -moz-transition-property: -moz-transform;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery li {
+            overflow: hidden;
+            -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
+            transition: border-radius 0.12s linear 0s 0.35s linear 0s;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery li.active,
+        .lSSlideOuter .lSPager.lSGallery li:hover {
+            border-radius: 5px;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery:before,
+        .lSSlideOuter .lSPager.lSGallery:after {
+            content: " ";
+            display: table;
+        }
+
+        .lSSlideOuter .lSPager.lSGallery:after {
+            clear: both;
+        }
+
+        /* End of Gallery*/
+
+        /* slider actions */
+        .lSAction>a {
+            width: 32px;
+            display: block;
+            top: 50%;
+            height: 32px;
+            background-image: url('../img/controls.png');
+            cursor: pointer;
+            position: absolute;
+            z-index: 99;
+            margin-top: -16px;
+            opacity: 0.5;
+            -webkit-transition: opacity 0.35s linear 0s;
+            transition: opacity 0.35s linear 0s;
+        }
+
+        .lSAction>a:hover {
+            opacity: 1;
+        }
+
+        .lSAction>.lSPrev {
+            background-position: 0 0;
+            left: 10px;
+        }
+
+        .lSAction>.lSNext {
+            background-position: -32px 0;
+            right: 10px;
+        }
+
+        .lSAction>a.disabled {
+            pointer-events: none;
+        }
+
+        .cS-hidden {
+            height: 1px;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            overflow: hidden;
+        }
+
+
+        /* vertical */
+        .lSSlideOuter.vertical {
+            position: relative;
+        }
+
+        .lSSlideOuter.vertical.noPager {
+            padding-right: 0px !important;
+        }
+
+        .lSSlideOuter.vertical .lSGallery {
+            position: absolute !important;
+            right: 0;
+            top: 0;
+        }
+
+        .lSSlideOuter.vertical .lightSlider>* {
+            width: 100% !important;
+            max-width: none !important;
+        }
+
+        /* vertical controlls */
+        .lSSlideOuter.vertical .lSAction>a {
+            left: 50%;
+            margin-left: -14px;
+            margin-top: 0;
+        }
+
+        .lSSlideOuter.vertical .lSAction>.lSNext {
+            background-position: 31px -31px;
+            bottom: 10px;
+            top: auto;
+        }
+
+        .lSSlideOuter.vertical .lSAction>.lSPrev {
+            background-position: 0 -31px;
+            bottom: auto;
+            top: 10px;
+        }
+
+        /* vertical */
+
+
+        /* Rtl */
+        .lSSlideOuter.lSrtl {
+            direction: rtl;
+        }
+
+        .lSSlideOuter .lightSlider,
+        .lSSlideOuter .lSPager {
+            padding-left: 0;
+            list-style: none outside none;
+        }
+
+        .lSSlideOuter.lSrtl .lightSlider,
+        .lSSlideOuter.lSrtl .lSPager {
+            padding-right: 0;
+        }
+
+        .lSSlideOuter .lightSlider>*,
+        .lSSlideOuter .lSGallery li {
+            float: left;
+        }
+
+        .lSSlideOuter.lSrtl .lightSlider>*,
+        .lSSlideOuter.lSrtl .lSGallery li {
+            float: right !important;
+        }
+    </style>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .main {
+            height: 100vh;
+            background-image: url("bga4.jpg");
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .box {
+            width: 270px;
+            height: 310px;
+            border-radius: 20px;
+            box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.1);
+            background-color: #f6f6f6;
+            margin: 30px 30px;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: 0.5s;
+            filter: blur(-2px);
+            transform: scale(0.8);
+
+        }
+
+        .box:hover {
+
+            color: #fff;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+            content: "";
+            transition: all 0.5s ease-in-out 0s;
+            z-index: 0;
+            filter: blur(0px);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .box p {
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box h5 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .box a {
+            color: #fff;
+            text-decoration: none;
+            transition: 1s;
+        }
+
+        .box a:hover {
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            background: deeppink;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .slide-details p:nth-child(1) {
+            font-size: 23px;
+            font-weight: 700;
+
+        }
+
+        .slide-details p:nth-child(1) .slide-details p:nth-child(2) {
+            font-size: 18px;
+        }
+
+        .slide-details {
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            width: 100%;
+            transform: translate(-50%, -20%);
+        }
+
+        .slide-details a {
+            text-align: center;
+        }
+
+        .box-img01 {
+            background-image: url("question.jpg");
+        }
+
+        .box-img02 {
+            background-image: url("Notes.jpg");
+        }
+
+        .box-img03 {
+            background-image: url("Pro.jpg");
+        }
+
+        .box-img04 {
+            background-image: url("place.jpg");
+        }
+
+        .box-img05 {
+            background-image: url("tnp.png");
+        }
+
+        .box-img06 {
+            background-image: url("mission.jpg");
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAv Bar start-->
+
+    <style>
+        .content {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0px 30px;
+        }
+
+        .navbar {
+            position: relative;
+            background: #fff;
+            z-index: 5;
+            width: 100%;
+            padding: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.sticky {
+            padding: 10px 0;
+            background: #1b1b1b;
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo a {
+            color: #000;
+            font-size: 30px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar .menu-list {
+            display: inline-flex;
+        }
+
+        .menu-list li {
+            list-style: none;
+        }
+
+        .menu-list li a {
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+            margin-left: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .menu-list li a:hover {
+            color: #007bff;
+        }
+
+        .icon {
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .icon.cancel-btn {
+            position: absolute;
+            right: 30px;
+            top: 20px;
+        }
+
+        .navbar.sticky .icon.cancel-btn {
+            top: 10px;
+        }
+
+        @media (max-width: 868px) {
+            body.disabledScroll {
+                overflow: hidden;
+            }
+
+            .icon {
+                display: block;
+                height: 50px;
+                width: 50px;
+                text-align: center;
+                line-height: 50px;
+                border-radius: 50%;
+                z-index: 9;
+            }
+
+            .icon.cancel-btn {
+                display: none;
+            }
+
+            .icon.cancel-btn.show {
+                display: block;
+            }
+
+            .icon.hide {
+                display: none;
+            }
+
+            .navbar .menu-list {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                background: #222;
+                display: block;
+                padding: 40px 0;
+                text-align: center;
+                clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+                transition: all 0.3s ease;
+            }
+
+            .navbar.sticky .menu-list {
+                clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+            }
+
+            .navbar .menu-list.active {
+                clip-path: circle(75%);
+            }
+
+            .navbar .menu-list li {
+                margin-top: 45px;
+            }
+
+            .navbar .menu-list li a {
+                font-size: 23px;
+            }
+        }
+    </style>
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="#">CollegeSpace</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="/Main/homepage.html">Home</a></li>
+                <li><a href="/Department/question.html">Question Paper</a></li>
+                <li><a href="/Department/notes.html">Notes</a></li>
+                <li><a href="/project page/Graphic/index.html">Projects</a></li>
+                <li><a href="/Placement/placement/placement.html">Placements</a></li>
+                <li><a href="/Main/R-TPO.pdf" target="_blank">T&P</a></li>
+                <li><a href="/Aboutus/aboutus.html" target="_blank">About us</a></li>
+                <input type="submit" value="logout" class="btn solid" onclick="logout()" />
+
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <script>
+        const body = document.querySelector("body");
+        const navbar = document.querySelector(".navbar");
+        const menu = document.querySelector(".menu-list");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            menu.classList.add("active");
+            menuBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+            body.classList.add("disabledScroll");
+        }
+        cancelBtn.onclick = () => {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            body.classList.remove("disabledScroll");
+        }
+
+        window.onscroll = () => {
+            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+        }
+    </script>
+    <!-- NAv Bar end-->
+
+
+    <section class="main">
+        <!--slider------------->
+        <ul id="autoWidth" class="cs-hidden">
+            <!--1------------------------------>
+            <li class="item-a">
+                <div class="box box-img01">
+                    <div class="slide-details">
+                        <p>Question Paper</p>
+                        <p>With Solution</p>
+                        <h5><a href="\Department\question.html"> Click Here </a></h5>
+
+                    </div>
+                    <div class="user user-img01"></div>
+                </div>
+            </li>
+            <!--2------------------------------>
+            <li class="item-b">
+                <div class="box box-img02">
+                    <div class="slide-details">
+                        <p>Notes</p>
+                        <p>With Department</p>
+                        <h5><a href="\Department\notes.html"> Click Here </a></h5>
+                    </div>
+                    <div class="user user-img02"></div>
+                </div>
+            </li>
+            <!--3------------------------------>
+            <li class="item-c">
+                <div class="box box-img03">
+                    <div class="slide-details">
+                        <p>Project</p>
+                        <p>Final Year</p>
+                        <h5><a href="\project page\Graphic\index.html"> Click Here </a></h5>
+                    </div>
+                    <div class="user user-img03"></div>
+                </div>
+            </li>
+            <!--4------------------------------>
+            <li class="item-d">
+                <div class="box box-img04">
+                    <div class="slide-details">
+                        <p>Placement</p>
+                        <p>Scenario</p>
+                        <h5><a href="\Placement\placement\placement.html"> Click Here </a></h5>
+                    </div>
+                    <div class="user user-img04"></div>
+                </div>
+            </li>
+            <!--5------------------------------>
+            <li class="item-e">
+                <div class="box box-img05">
+                    <div class="slide-details">
+                        <p>T&P</p>
+                        <p>Coordinates & Trainer</p>
+                        <h5><a href="\Main\R-TPO.pdf" target="_blank" ;> Click Here </a></h5>
+                    </div>
+                    <div class="user user-img05"></div>
+                </div>
+            </li>
+            <!--6------------------------------>
+            <li class="item-f">
+                <div class="box box-img06">
+                    <div class="slide-details">
+                        <p>Our Mission</p>
+                        <p>About us</p>
+                        <h5><a href="\Aboutus\aboutus.html" target="_blank"> Show </a></h5>
+                    </div>
+                    <div class="user user-img06"></div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDcKcrPo2-0e0pzAwUB3V1HedhKPSjsIcU",
+            authDomain: "verdant-upgrade-312106.firebaseapp.com",
+            databaseURL: "https://verdant-upgrade-312106-default-rtdb.firebaseio.com",
+            projectId: "verdant-upgrade-312106",
+            storageBucket: "verdant-upgrade-312106.appspot.com",
+            messagingSenderId: "893889921318",
+            appId: "1:893889921318:web:2a405d7d687b3c608e81e7",
+            measurementId: "G-PMETBS3262"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        function logout() {
+            firebase.auth().signOut().then(function () {
+                window.location.replace("/Sliding-Sign-In-Sign-Up-Form-master/index.html")
+                alert('sign out');
+            });
+        }
+    </script>
+
+
+    <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>
