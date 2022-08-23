@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Placement Scenario</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="\Image\favicon.png" rel="icon">
+
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Knight - v4.3.0
+  * Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+  <!-- NAv Bar start-->
+
+  <style>
+    .content {
+      max-width: 1250px;
+      margin: auto;
+      padding: 0px 30px;
+    }
+
+    .navbar {
+      position: relative;
+      background: #fff;
+      z-index: 5;
+      width: 100%;
+      padding: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.sticky {
+      padding: 10px 0;
+      background: #1b1b1b;
+      box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar .logo a {
+      color: #000;
+      font-size: 30px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .navbar .menu-list {
+      display: inline-flex;
+    }
+
+    .menu-list li {
+      list-style: none;
+    }
+
+    .menu-list li a {
+      color: #000;
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .menu-list li a:hover {
+      color: #007bff;
+    }
+
+    .icon {
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .icon.cancel-btn {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+    }
+
+    .navbar.sticky .icon.cancel-btn {
+      top: 10px;
+    }
+
+    @media (max-width: 868px) {
+      body.disabledScroll {
+        overflow: hidden;
+      }
+
+      .icon {
+        display: block;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        z-index: 9;
+      }
+
+      .icon.cancel-btn {
+        display: none;
+      }
+
+      .icon.cancel-btn.show {
+        display: block;
+      }
+
+      .icon.hide {
+        display: none;
+      }
+
+      .navbar .menu-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: #222;
+        display: block;
+        padding: 40px 0;
+        text-align: center;
+        clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+        transition: all 0.3s ease;
+      }
+
+      .navbar.sticky .menu-list {
+        clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+      }
+
+      .navbar .menu-list.active {
+        clip-path: circle(75%);
+      }
+
+      .navbar .menu-list li {
+        margin-top: 45px;
+      }
+
+      .navbar .menu-list li a {
+        font-size: 23px;
+      }
+    }
+  </style>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">CollegeSpace</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="/Main/homepage.html">Home</a></li>
+        <li><a href="/Department/question.html">Question Paper</a></li>
+        <li><a href="/Department/notes.html">Notes</a></li>
+        <li><a href="/project page/Graphic/index.html">Projects</a></li>
+        <li><a href="/Placement/placement/placement.html">Placements</a></li>
+        <li><a href="/Main/R-TPO.pdf" target="_blank">T&P</a></li>
+        <li><a href="/Aboutus/aboutus.html" target="_blank">About us</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = () => {
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = () => {
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+
+    window.onscroll = () => {
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  <!-- NAv Bar end-->
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <!--<a href="index.html" class="hero-logo" data-aos="zoom-in"><img src="assets/img/hero-logo.png" alt=""></a>-->
+      <h1 data-aos="zoom-in">Welcome To Placement Scenario</h1>
+      <h2 data-aos="fade-up"> Here You See All The Tremendous & Best Placements Of Students ….<br>Get The Every Single
+        Detail About It And Make Sure You Get It The Point Behind It.</h2>
+      <a data-aos="fade-up" data-aos-delay="200" href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+
+        </ul>
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Placements Scenerio</h2>
+          <p>Here You will get all information</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="image">
+              <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
+              <h3>
+                Welcome To The Placement Section , Here You See All The Tremendous & Best Placements Of Students ….
+              </h3>
+              <p class="fst-italic">
+                Get The Every Single Detail About It And Make Sure You Get It The Point Behind It.
+              </p>
+              <ul>
+                <li><i class="bx bx-check-double"></i> The T & P Cell provides ample opportunities to the students to
+                  develop their personality by conducting training programs regularly on communication skills and soft
+                  skills. </li>
+                <li><i class="bx bx-check-double"></i> We have added Soft Skill & Aptitude Sessions in daily time-table
+                  for all the classes..</li>
+                <li><i class="bx bx-check-double"></i> We have three full time Soft Skill trainers & One Aptitude
+                  trainer Training activities are organized throughout the year in an effort towards preparing the
+                  prospective students for the campus selection process. Training & Placement Cell makes the students
+                  Industry-ready candidates</li>
+              </ul>
+              <p>
+                The Cell is well equipped with generous infrastructure in terms of Seminar Halls, Meeting Hall for
+                Pre-Placement Talk, Presentations, Interview, & GD Cabins etc
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Placements</h2>
+          <p>Best Placement of Students</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">2019</li>
+              <li data-filter=".filter-card">2020</li>
+              <li data-filter=".filter-web">2021</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/elecrtic2018-19.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Electrical dep</h4>
+                <p>2018-2019</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/elecrtic2018-19.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/civil2.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Civil</h4>
+                <p>Placement Graph</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/civil2.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/civil.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>CSE</h4>
+                <p>PLACEMENT 2020-21</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/CSE2020-21.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/mech2018-19.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Mechanical</h4>
+                <p>2018-19</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/mech2018-19.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/entc2019-20.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>ENTC</h4>
+                <p>2019-20</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/entc2019-20.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/mech2019-20.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Mechanical</h4>
+                <p>2019-20</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/mech2019-20.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/CSE2020-21.png" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>CSE</h4>
+                <p>Placement</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/CSE2020-21.png" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/IMG-20200321-WA0027-1024x682.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Wipro</h4>
+                <p>2019-20</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/IMG-20200321-WA0027-1024x682.jpg" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="/Placement/placement/assets/img/portfolio/IMG-20200321-WA0028-1024x682.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Dhoot Tranmission</h4>
+                <p>2019-20</p>
+                <div class="portfolio-links">
+                  <a href="/Placement/placement/assets/img/portfolio/IMG-20200321-WA0028-1024x682.jpg" data-gallery="portfolioGallery"
+                    class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Get Enroll for study aboard cell</h2>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="info d-flex flex-column justify-content-center" data-aos="fade-right">
+
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+91 88888 88888</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-left">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
