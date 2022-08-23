@@ -1,0 +1,36 @@
+  
+    <div id="user_div" class="loggedin-div">
+ 
+        <h3>Welcome User</h3>
+        <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+        <a  id="verified_1"  href="/public/Homepage/index.html">Go to next page</a>  
+        </br>
+        <input type="text" placeholder="name" id="name_field" />
+        </br>
+        <input  placeholder="Prn" id="prn_field" />
+    
+      
+        <button onclick="logout()">Logout</button>
+       </br>
+        <button id="verified" onclick="Send_verification()">Send Verification</button>
+        
+      </div>
+      
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+      apiKey: "AIzaSyDcKcrPo2-0e0pzAwUB3V1HedhKPSjsIcU",
+      authDomain: "verdant-upgrade-312106.firebaseapp.com",
+      databaseURL: "https://verdant-upgrade-312106-default-rtdb.firebaseio.com",
+      projectId: "verdant-upgrade-312106",
+      storageBucket: "verdant-upgrade-312106.appspot.com",
+      messagingSenderId: "893889921318",
+      appId: "1:893889921318:web:2a405d7d687b3c608e81e7",
+      measurementId: "G-PMETBS3262"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="index.js"></script>
+
+    <script src="app.js"></script>
