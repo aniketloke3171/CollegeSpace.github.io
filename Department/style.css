@@ -1,0 +1,155 @@
+/*------------------------------------------------------------------
+    Version: 1.0
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    IMPORT FONTS
+-------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800');
+
+/*------------------------------------------------------------------
+    IMPORT FILES
+-------------------------------------------------------------------*/
+
+@import url(css/animate.css);
+@import url(css/camera.css);
+@import url(css/flaticon.css);
+@import url(css/prettyPhoto.css);
+@import url(css/owl.carousel.css);
+@import url(css/font-awesome.min.css);
+
+/*------------------------------------------------------------------
+    SKELETON
+-------------------------------------------------------------------*/
+
+body {
+    background-image: url(https://picsum.photos/200/300/?blur=2);
+    background-size: cover;
+    color: #999999;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.80857;
+}
+
+html, body{
+	height: 100%;
+}
+
+body.demos .section {
+    background: url(images/bg.png) repeat top center #f2f3f5;
+}
+
+.titles h1{
+	text-align: center;
+	background: #fff;
+	color: #000;
+	font-weight: 900;
+	margin: 10px;
+	padding: 10px;
+}
+body.demos .section-title h3 {
+	background-color: white;
+    max-width: 280px;
+    display: block;
+    margin: 10px auto;
+}
+
+body.demos .service-widget h3 {
+    border-bottom: 1px solid #ededed;
+    font-size: 18px;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+body.demos .service-widget {
+    margin: 10px 0 30px;
+    padding: 30px;
+    background-color: #fff
+}
+
+.container{
+    letter-spacing: 1px;
+    position: relative;
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#services{
+    margin: center;
+    margin-top: center;
+    padding: center;
+}
+#services h3{
+    font-size: 35px;
+    font-weight: 900;
+    color: #333333;
+    margin: 20px;
+    padding: 50px;
+}
+
+.services-inner-box{
+	padding: 15px;
+	background: #ffffff;
+	margin-bottom: 30px;
+	border-radius: 50px 50px 0px 50px;
+	position: relative;
+	transition: all 0.3s ease-in-out 0s;
+}
+.ser-icon{
+	width: 90px;
+	height: 90px;
+	text-align: center;
+	line-height: 90px;
+	position: relative;
+	z-index: 1;
+}
+.ser-icon i{
+	font-size: 50px;
+	color: #333333;
+}
+.services-inner-box h2{
+	font-size: 22px;
+	font-weight: 600;
+	position: relative;
+	z-index: 1;
+}
+.services-inner-box p{
+	font-size: 14px;
+	position: relative;
+	z-index: 1;
+}
+
+.services-inner-box::after{
+	background: #28a9e2;
+	width: 0px;
+	height: 0px;
+	content: "";
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	border-radius: 50px 50px 0px 50px;
+	transition: all 0.3s ease-in-out 0s;
+	z-index: 0;
+}
+.services-inner-box:hover::after{
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.services-inner-box:hover .ser-icon i{
+	color: #ffffff;
+}
+
+.services-inner-box:hover h2{
+	color: #ffffff;
+	transition: all 0.3s ease-in-out 0s;
+}
+.services-inner-box:hover p{
+	color: #ffffff;
+}
+ 
+

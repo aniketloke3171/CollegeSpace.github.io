@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Template Mo">
+    <link href="\Image\favicon.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<!--
+    <style>
+        .title-box{
+             text-align: center;
+             margin: 100px auto 50px;
+        }
+        .title-box p{
+            margin-top: 10px;
+            line-height: 24px;
+        }
+        .profile-box{
+            width: 240px;
+            height: 340px;
+            background: #fff;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 10px 10px rgba(115, 193, 255, 0.1);
+            padding: 20px;
+            position: relative;
+        }
+        .profile-box img{
+           width: 100px;
+           position: absolute;
+           top: 20px;
+           right: 20px;
+           border-radius: 4px;
+           transition: .5s;
+        }
+        .profile-box h4{
+            margin-top: 25px;
+            margin-bottom: 5px;
+            color: #2196f3;
+        }
+        small{
+            color: #c0c0c0;
+        }
+        .social-box{
+            background: #2196f3;
+            margin: 60px auto 20px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        .social-box .fa{
+            margin: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .profile-box p{
+            text-align: center;
+            line-height: 24px;
+            color: #555;
+        }
+        .team-row{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: auto;
+        }
+        .profile-box img:hover{
+            width: 240px;
+        }
+        </style>-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(#f7fafc, #def3f762);
+        }
+
+        header {
+            position: relative;
+            max-width: 1450px;
+            margin: 0 auto;
+            padding: 10px;
+            background: deepskyblue;
+            box-sizing: border-box;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+        }
+
+        .logo img {
+            height: 90px;
+            font-size: 40px;
+            line-height: 60px;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            float: left;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav {
+            float: right;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 15px;
+            text-decoration: none;
+            color: #262626;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: #fff;
+            transition: 0.5s;
+            text-decoration: none;
+        }
+
+        @media (max-width:1200px) {
+            header {
+                margin: 10px;
+            }
+
+            header img {
+                width: 200px;
+            }
+        }
+
+        @media (max-width:768px) {
+            .menu-toggle {
+                display: block;
+                width: 40px;
+                height: 40px;
+                margin: 10px;
+                float: right;
+                cursor: pointer;
+                text-align: center;
+                font-size: 30px;
+                color: #069370;
+            }
+
+            .menu-toggle:before {
+                content: '\f0c9';
+                font-family: fontAwesome;
+                line-height: 40px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-toggle.active:before {
+                content: '\f00d';
+            }
+
+            nav.active {
+                display: block;
+                width: 100%;
+            }
+
+            nav.active ul {
+                display: block;
+            }
+
+            nav.active ul li a {
+                margin: 0;
+            }
+        }
+
+        .titlebar {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .titlebar h2,
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+        }
+    </style>
+    <title>Get In Touch</title>
+    <!--
+
+ART FACTORY
+
+https://templatemo.com/tm-537-art-factory
+
+-->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/templatemo-art-factory.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+
+</head>
+
+<body>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('.menu-toggle').click(function () {
+                $('.menu-toggle').toggleClass('active')
+                $('nav').toggleClass('active')
+            })
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <style>
+        section {
+            padding: 100px 0;
+        }
+
+        .max-width {
+            max-width: 1800px;
+            padding: 0 10px;
+            margin: auto;
+        }
+
+        .home {
+            display: flex;
+            background-image: url("assets/images/3718985.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            color: deepskyblue;
+            min-height: 500px;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .home .max-width {
+            margin: auto 0 auto 30px;
+        }
+
+        .home .home-content .text-1 {
+            font-size: 27px;
+        }
+
+        .home .home-content .text-2 {
+            font-size: 75px;
+            font-weight: 600;
+            margin-left: -3px;
+        }
+
+        .home .home-content .text-3 {
+            font-size: 40px;
+            margin: 5px 0;
+        }
+
+        .home .home-content .text-3 span {
+            color: rgba(0, 0, 0, 0.788);
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 1300px) {
+            .home .max-width {
+                margin-left: 0px;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .max-width {
+                padding: 0 50px;
+            }
+        }
+
+        @media screen and (max-width: 947px) {
+            .home .home-content .text-2 {
+                font-size: 70px;
+            }
+
+            .home .home-content .text-3 {
+                font-size: 35px;
+            }
+
+            .max-width {
+                max-width: 930px;
+            }
+        }
+
+        @media screen and (max-width: 690px) {
+            .max-width {
+                padding: 0 23px;
+            }
+
+            .home .home-content .text-2 {
+                font-size: 60px;
+            }
+
+            .home .home-content .text-3 {
+                font-size: 32px;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .home .home-content .text-2 {
+                font-size: 50px;
+            }
+
+            .home .home-content .text-3 {
+                font-size: 27px;
+            }
+        }
+    </style>
+    
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Welcome to</div>
+                <div class="text-2">CollegeSpace</div>
+                <div class="text-3">All About Our <span class="typing"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var typed = new Typed(".typing", {
+            strings: ["Institute", "CollegeSpace", "Contact Us"],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+    </script>
+    <style>
+        .about-container {
+            width: 90%;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+            display: flex;
+            margin: -7% auto 20px auto;
+            position: relative;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .about-container img {
+            height: 250px;
+        }
+
+        .about-text {
+            width: 500px;
+        }
+
+        .about-text h2 {
+            padding: 10px;
+            color: #403e3e;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 0px;
+        }
+
+        .about-text h3 {
+            padding: 10px;
+            color: #3e3d3d;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 5px;
+        }
+
+        .about-text a {
+            text-decoration: none;
+            padding: 10px;
+            height: 40px;
+            color: #ffffff;
+            outline: none;
+            border: none;
+            background-color: #262525;
+        }
+
+        @media (max-width:768px) {
+            .about-container {
+                top: 0px;
+                flex-direction: column;
+                width: 80%;
+                height: auto;
+                padding: 30px 0px;
+                align-items: center;
+            }
+
+            .about-text {
+                width: 90%;
+                text-align: center;
+            }
+        }
+    </style>
+    </footer>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+
+    <!-- ***** Header Area End ***** -->
+
+
+    <!-- ***** Welcome Area Start ***** -->
+
+
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
+                    <div class="left-heading">
+                        <h5>About Our Institute</h5>
+                    </div>
+                    <div class="left-text">
+                        <p> NKOCET has been rated amongst the Platinum
+                            Institute by AICTE-CII Survey of Industry Linked
+                            Tech. Institutes for consecutive last three years.
+                            Only 145 institutes out of 10,000 in the country are
+                            in the platinum band.
+                            Mechanical Engineering Department was amongst
+                            top four departments amongst 710 participants for
+                            AICTE- CII Best Industry Institute Award from
+                            all over India<br><br>
+                           
+                        
+                            I feel great privilege in presenting annual report of
+                            our institute for the academic year 2020-21. This is a
+                            critical juncture to look back at what the Institute has
+                            done in the last one year and where it stands today:
+                            Some facts first</p>
+                        <a href="#about2" class="main-button">Discover More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about2">
+        <div class="container">
+            <div class="row">
+                <div class="left-text col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <div class="left-heading">
+                        <h5>About Our CollgeSpace</h5>
+                    </div>
+                    <p>CollegeSpace, the Socio-Academic Portal , It can the most frequently visited website, 
+                    </p>
+                    <ul>
+                       
+                            <div class="text">
+                                <p>  CollegeSpace is the Academic Portal with an aim to provide a holistic solution to all student needs.</p>
+                                <p>If you have any question or comment, please 
+                            </div>
+                        
+                    </ul>
+                </div>
+                <div class="right-image col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <img src="assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div>
+                    
+                    <a href="#contact-us" class="main-button">Contact Us</a>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <section class="section" id="contact-us">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- ***** Contact Map Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div id="map">
+                        
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.5218684671577!2d75.91653451470823!3d17.72003308788011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5dab41838aa65%3A0x2f708345860c826a!2sN%20K%20Orchid%20College%20of%20Engineering%20%26%20Technology%2CSolapur!5e0!3m2!1sen!2sin!4v1624697052414!5m2!1sen!2sin"
+                            width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- ***** Contact Map End ***** -->
+
+                <!-- ***** Contact Form Start ***** -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="post">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <fieldset>
+                                        <input name="name" type="text" id="name" placeholder="Full Name" required=""
+                                            class="contact-field">
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <fieldset>
+                                        <input name="email" type="text" id="email" placeholder="E-mail" required=""
+                                            class="contact-field">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <textarea name="message" rows="6" id="message" placeholder="Your Message"
+                                            required="" class="contact-field"></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="main-button">Send It</button>
+                                    </fieldset>
+                                </div>
+                              
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ***** Contact Form End ***** -->
+            </div>
+        </div>
+        <div>
+                    
+            <a href="#team" class="main-button">Our team</a>
+        </div> 
+    </section>
+    
+    <!-- ***** Contact Us End ***** -->
+    
+
+
+
+
+
+<style>
+.title-box{
+     text-align: center;
+     margin: 100px auto 50px;
+}
+.title-box p{
+    margin-top: 10px;
+    line-height: 24px;
+}
+.profile-box{
+    width: 310px;
+    height: 440px;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 10px 10px rgba(115, 193, 255, 0.1);
+    padding: 20px;
+    position: relative;
+}
+.profile-box img{
+   width: 90px;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   border-radius: 4px;
+   transition: .5s;
+}
+.profile-box h4{
+    margin-top: 25px;
+    margin-bottom: 5px;
+    color: #2196f3;
+}
+small{
+    color: #c0c0c0;
+}
+.social-box{
+    background: #2196f3;
+    margin: 60px auto 20px;
+    text-align: center;
+    border-radius: 3px;
+}
+.social-box .fa{
+    margin: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.profile-box p{
+    text-align: center;
+    line-height: 24px;
+    color: #555;
+}
+.team-row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: auto;
+}
+.profile-box img:hover{
+    width: 290px;
+}
+</style>
+
+
+
+
+
+
+    <div class="title-box" id="team">
+        <h1>Meet Our Team</h1>
+        <p>CollegeSpace is an provider of Notes ,Question Paper and many more that can help you in figuring all the necessary in the study.</p>
+    </div>
+    <div class="team-row">
+        <div class="profile-box">
+            <h4>Mafaz Shaikh</h4>
+            <small>UI Developer</small>
+            <img src="mafaz.jpg" alt="">
+            <div class="social-box">
+                <a href="https://www.facebook.com"><i class="fa fa-facebook" title="Facebook Page"></i></a>
+                <a href="https://twitter.com"><i class="fa fa-twitter" title="Twitter Page"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" title="Instagram Page"></i></a>
+            </div>
+            <p>
+                It was a really good experience working with a team. We got to learn new things together. Without my team this project was nothing but just a dream . I gained a lot of important knowledge working with my team.
+            </p>
+        </div>
+
+        <div class="profile-box">
+            <h4>Aniket Loke</h4>
+            <small>Theme Founder</small>
+            <img src="Aniket Loke.jpg" alt="">
+            <div class="social-box">
+                <a href="https://www.facebook.com"><i class="fa fa-facebook" title="Facebook Page"></i></a>
+                <a href="https://twitter.com"><i class="fa fa-twitter" title="Twitter Page"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" title="Instagram Page"></i></a>
+            </div>
+            <p>
+                Spended A Quality Time With My Team , Gained A Best Experience While Working On New Platform, The Proud Moment Is That 
+                The Every Member Of Team Worked Smartly And Sincerely ,  Only Because Of Each And Every Member , The Task Is Completed Successfully ...
+            </p>
+        </div>
+
+        <div class="profile-box">
+            <h4>Amey Boarade</h4>
+            <small>Web Designer</small>
+            <img src="a3.JPG" alt="">
+            <div class="social-box">
+                <a href="https://www.facebook.com"><i class="fa fa-facebook" title="Facebook Page"></i></a>
+                <a href="https://twitter.com"><i class="fa fa-twitter" title="Twitter Page"></i></a>
+                <a href="https://www.instagram.com"><i class="fa fa-instagram" title="Instagram Page"></i></a>
+            </div>
+            <p>
+                Really Great Chance To Work With Such Excellent Team Members , Role In Website Design , Gained A Quality Experience With Great And Remarkable Work ....
+                The Task Is Completed Successfully ...
+            </p>
+        </div>
+
+        <div class="profile-box">
+            <h4>Aditya Bansode</h4>
+            <small>DataBase Manager</small>
+            <img src="aditya.jpeg" alt="">
+            <div class="social-box">
+                <a href="https://www.facebook.com"><i class="fa fa-facebook" title="Facebook Page"></i></a>
+                <a href="https://twitter.com"><i class="fa fa-twitter" title="Twitter Page"></i></a>
+                <a href="https://www.instagram.com"><i class="fa fa-instagram" title="Instagram Page"></i></a>
+            </div>
+            <p>
+                Role in Database management with team and great work a head  The Every Member Of Team Worked Smartly And Sincerely ,  Only Because Of Each And Every Member , The Task Is Completed Successfully ...
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12">
+                    <p class="copyright">Copyright &copy; 2021 Crazyboys Group
+
+                        . Design: <a rel="nofollow" href="">CollegeSpace</a></p>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>
